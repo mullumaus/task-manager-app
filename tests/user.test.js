@@ -4,8 +4,6 @@ const User = require('../src/models/user')
 const { userOne, userOneId, setupDatabase } = require('./fixtures/db')
 
 
-
-
 //before each testcase in this test suite
 beforeEach(setupDatabase)
 
@@ -121,4 +119,7 @@ test('Should update invalid user fields', async () => {
         })
         .expect(400)
 })
+
+
+
 
