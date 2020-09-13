@@ -8,12 +8,12 @@ router.delete('/tasks/:id', auth, async (req, res) => {
         //const task = await Task.findByIdAndDelete(req.params.id)
         const task = await Task.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
         if (!task) {
-            return res.status(400).send({ error: "Invalid request" })
+            return res.status(404).send({ error: "Invalid request" })
         }
         res.send(task)
 
     } catch (err) {
-        res.status(400).send(err)
+        res.status(404).send(err)
     }
 })
 
